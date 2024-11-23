@@ -133,7 +133,12 @@ const Calendar: React.FC<CalendarProps> = ({ notes, setNotes }) => {
                     const isCurrentMonth = day.isSame(currentDate, "month");
 
                     return (
-                        <div key={day.toString()} className={`relative border p-4 rounded-lg  ${isToday ? "bg-blue-600 text-white" : ""} ${!isCurrentMonth ? "bg-gray-200 opacity-30" : "bg-gray-100 hover:bg-gray-200"}`}  >
+                        <div
+                            key={day.toString()}
+                            className={`relative border p-4 rounded-lg  ${
+                                isToday ? "bg-green-600 text-white" : ""
+                            } ${!isCurrentMonth ? "bg-gray-200 opacity-30" : "bg-gray-100"}`}
+                        >
                             <div className="text-xl font-bold">{day.date()}</div>
 
                             <div className="absolute top-0 right-1 flex gap-2">
@@ -144,7 +149,6 @@ const Calendar: React.FC<CalendarProps> = ({ notes, setNotes }) => {
                                     <button onClick={() => handleAddNewNote(formattedDate)} className="text-black p-1 rounded-full"> + </button>
                                 )}
                             </div>
-
 
                             <div className="text-sm mt-2">
                                 {dateNotes.map((note, index) => (
